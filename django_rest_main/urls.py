@@ -26,4 +26,6 @@ urlpatterns = [
     
     # API Endpoints
     path('api/', include('api.urls')),
+    
+    
 ]

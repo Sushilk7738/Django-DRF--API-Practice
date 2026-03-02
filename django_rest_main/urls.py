@@ -27,5 +27,6 @@ urlpatterns = [
     # API Endpoints
     path('api/', include('api.urls')),
     
-    
+    #New teacher endpoints
+    path('teacher/', include('Teachers.urls'))
 ]

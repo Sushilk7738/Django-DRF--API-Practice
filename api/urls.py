@@ -20,5 +20,13 @@ urlpatterns = [
     
     path('blogs/', views.BlogsView.as_view()),
     path('comments/', views.CommentsView.as_view()),
+    
+    path('blogs/<int:pk>/', views.BlogDetailsView.as_view()),
+    path('comments/<int:pk>/', views.CommentDetailsView.as_view()),
+    
+    #* nested serializers 
+    # path('teacher/',  views.TeacherView.as_view()),
+    # path('subject/', views.SubjectView.as_view()),
+
 
 ]

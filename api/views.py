@@ -11,6 +11,8 @@ from employees.models import Employee
 from django.http import Http404
 from blogs.models import Blog, Comment
 from blogs.serializers import BlogSerializer, CommentSerializer
+from Teachers.models import Teacher, Subject
+from Teachers.serializers import TeacherSerializer, SubjectSerializer
 
 
 # def studentsView(request):
@@ -217,6 +219,12 @@ class EmployeeViewset(viewsets.ModelViewSet):
 
 
 
+
+# ==========================================================================================
+                                    #* Nested serializers
+# ==========================================================================================
+
+
 class BlogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
@@ -224,4 +232,26 @@ class BlogsView(generics.ListCreateAPIView):
 class CommentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    
+    
+class BlogDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+    lookup_field = 'pk'
 
+class CommentDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    lookup_field = 'pk'
+
+
+
+# class TeacherView(generics.ListCreateAPIView):
+#     queryset = Teacher.objects.all()
+#     serializer_class = TeacherSerializer
+
+# class SubjectView(generics.ListCreateAPIView):
+#     queryset = Subject.objects.all()
+#     serializer_class = SubjectSerializer
+
+    

@@ -13,6 +13,8 @@ from blogs.models import Blog, Comment
 from blogs.serializers import BlogSerializer, CommentSerializer
 from Teachers.models import Teacher, Subject
 from Teachers.serializers import TeacherSerializer, SubjectSerializer
+from .paginations import CustomPagination
+
 
 
 # def studentsView(request):
@@ -216,7 +218,7 @@ def studentsDetailView(request, pk):
 class EmployeeViewset(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-
+    pagination_class = CustomPagination    #* Custom pagination
 
 
 
